@@ -1,13 +1,18 @@
 import { cities } from "@/lib/data";
+import Link from "next/link";
 
 export default function Cities() {
-  <>
-    <h1>All cities</h1>
+  return (
+    <>
+      <h1>All cities</h1>
 
-    <ul>
-      {cities.map(({ id, name }) => (
-        <li key={id}>{name}</li>
-      ))}
-    </ul>
-  </>;
+      <ul>
+        {cities.map(({ id, name, slug }) => (
+          <li key={id}>
+            <Link href={`cities/${slug}`}>{name}</Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
